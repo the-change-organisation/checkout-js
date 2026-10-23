@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import { configurePublicPath } from '../common/bundler';
+import showDevBadge from '../tco/devBadge';
 import loadBrandFont from '../tco/loadBrandFont';
 
 import { type CheckoutAppProps } from './CheckoutApp';
@@ -17,6 +18,7 @@ export default function renderCheckout({
 }: RenderCheckoutOptions): void {
     initWhyDidYouRender();
     loadBrandFont();
+    showDevBadge();
 
     const configuredPublicPath = configurePublicPath(publicPath);
 
