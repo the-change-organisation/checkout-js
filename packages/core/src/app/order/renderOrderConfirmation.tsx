@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import { configurePublicPath } from '../common/bundler';
+import loadBrandFont from '../tco/loadBrandFont';
 
 import { type OrderConfirmationAppProps } from './OrderConfirmationApp';
 
@@ -13,6 +14,8 @@ export default function renderOrderConfirmation({
     publicPath,
     ...props
 }: RenderOrderConfirmationOptions): void {
+    loadBrandFont();
+
     const configuredPublicPath = configurePublicPath(publicPath);
 
     // We want to use `require` here because we want to set up the public path

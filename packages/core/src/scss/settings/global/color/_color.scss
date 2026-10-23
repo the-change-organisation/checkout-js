@@ -2,6 +2,10 @@
 // COLORS
 // =============================================================================
 
+// TCO: The Change design tokens (catalyst-storefront globals.css, design pack docs/03-design).
+// Blue #406FB2 for actions and links, Dark Blue #00001F for headings, the storefront's grey
+// scale and status colours, so checkout reads as the same site as the storefront.
+
 // Basics
 // -----------------------------------------------------------------------------
 
@@ -10,48 +14,48 @@ $color-white:                       #fff;
 
 $color-whitesBase:                  #fff;
 
-$color-grey:                        #999;
-$color-greyDarkest:                 #292929;
-$color-greyDarker:                  #333;
-$color-greyDark:                    #5f5f5f;
-$color-greyMedium:                  #ddd;
-$color-greyLight:                   #ebebeb;
-$color-greyLighter:                 #f5f5f5;
+$color-grey:                        #7a8285;
+$color-greyDarkest:                 #1c1f21;
+$color-greyDarker:                  #3d4447;
+$color-greyDark:                    #5e6669;
+$color-greyMedium:                  #d4d8d9;
+$color-greyLight:                   #e8eaea;
+$color-greyLighter:                 #f6f7f7;
 $color-greyLightest:                #fcfcfc;
 
 // Branding
 // -----------------------------------------------------------------------------
 
-$color-primary:                     #333;
+$color-primary:                     #406fb2;
 $color-primaryLight:                lighten($color-primary, 15%);
-$color-primaryDark:                 darken($color-primary, 15%);
-$color-primaryDarker:               #000;
+$color-primaryDark:                 #345e9c;
+$color-primaryDarker:               #00001f;
 
 $color-secondary:                   #fff;
 $color-secondaryDark:               $color-greyLightest;
 $color-secondaryDarker:             $color-greyLighter;
-$color-secondaryDarkest:            #757575;
+$color-secondaryDarkest:            #5e6669;
 
-$color-highlight:                   #4496f6;
-$color-highlightDark:               darken($color-highlight, 15%);
-$color-highlightDarker:             darken($color-highlight, 25%);
+$color-highlight:                   #406fb2;
+$color-highlightDark:               #345e9c;
+$color-highlightDarker:             #00001f;
 
 // States
 // -----------------------------------------------------------------------------
 
-$color-error:                       #d14343;
+$color-error:                       #c62d32;
 $color-errorLight:                  #fff0f1;
 
-$color-info:                        #5f5f5f;
-$color-infoLight:                   #f5f5f5;
+$color-info:                        #5e6669;
+$color-infoLight:                   #eaf0f8;
 
-$color-success:                     #004d0d;
-$color-successLight:                #d3f5d9;
+$color-success:                     #1e7f4f;
+$color-successLight:                #e6f4ec;
 $color-successDark:                 #16a34a;
 $color-successDarker:               #15803d;
 
-$color-warning:                     #d1a162;
-$color-warningLight:                #fbf7ee;
+$color-warning:                     #a35600;
+$color-warningLight:                #fff3e0;
 $color-warningDark:                 #b45309;
 
 // Text

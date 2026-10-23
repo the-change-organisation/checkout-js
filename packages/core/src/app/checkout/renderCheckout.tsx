@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import { configurePublicPath } from '../common/bundler';
+import loadBrandFont from '../tco/loadBrandFont';
 
 import { type CheckoutAppProps } from './CheckoutApp';
 import { initWhyDidYouRender } from './wdyr';
@@ -15,6 +16,7 @@ export default function renderCheckout({
     ...props
 }: RenderCheckoutOptions): void {
     initWhyDidYouRender();
+    loadBrandFont();
 
     const configuredPublicPath = configurePublicPath(publicPath);
 
