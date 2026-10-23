@@ -1,0 +1,128 @@
+// =============================================================================
+// TCO OVERRIDES
+// =============================================================================
+//
+// BigCommerce adds a second stylesheet to the checkout page, built from the store's "Checkout"
+// theme settings (header colour, logo, link colour, body font). It loads after this app's CSS
+// and styles the `optimizedCheckout-*` classes, so on its own it would win. These rules repeat
+// The Change design tokens with a `html body` prefix so they outrank it, whatever the store's
+// checkout settings say. Colours and fonts come from settings/global (color, typography).
+//
+// -----------------------------------------------------------------------------
+
+$tco-ink: $color-greyDarkest;           // #1C1F21 body text
+$tco-dark: $color-primaryDarker;        // #00001F headings
+$tco-blue: $color-primary;              // #406FB2 actions and links
+$tco-blue-hover: $color-primaryDark;    // #345E9C
+$tco-muted: $color-greyDark;            // #5E6669 secondary text
+$tco-border: $color-greyMedium;         // #D4D8D9 panels
+$tco-field: #b3b9bb;                    // field borders (storefront contrast-300)
+$tco-surface: $color-greyLighter;       // #F6F7F7
+
+html body {
+    background-color: $color-white;
+    color: $tco-ink;
+    font-family: $fontFamily-montserrat;
+
+    // Text the store settings recolour or re-font
+    .optimizedCheckout-contentPrimary,
+    .optimizedCheckout-primaryContent,
+    .optimizedCheckout-orderSummary,
+    .optimizedCheckout-form-label,
+    .optimizedCheckout-form-checklist {
+        color: $tco-ink;
+        font-family: $fontFamily-montserrat;
+    }
+
+    .optimizedCheckout-contentSecondary {
+        color: $tco-muted;
+        font-family: $fontFamily-montserrat;
+    }
+
+    .optimizedCheckout-headingPrimary,
+    .optimizedCheckout-headingSecondary {
+        color: $tco-dark;
+        font-family: $fontFamily-montserrat;
+    }
+
+    a,
+    .optimizedCheckout-contentPrimary a,
+    .optimizedCheckout-orderSummary a {
+        color: $tco-blue;
+
+        &:hover,
+        &:focus {
+            color: $tco-blue-hover;
+        }
+    }
+
+    // Buttons (C-BUTTON: blue with white text, 4px corners)
+    .optimizedCheckout-buttonPrimary {
+        background-color: $tco-blue;
+        border-color: $tco-blue;
+        border-radius: 4px;
+        color: $color-white;
+        font-family: $fontFamily-montserrat;
+
+        &:hover,
+        &:focus,
+        &:active {
+            background-color: $tco-blue-hover;
+            border-color: $tco-blue-hover;
+            color: $color-white;
+        }
+
+        &:disabled,
+        &[disabled] {
+            background-color: $color-greyLight;
+            border-color: $color-greyLight;
+            color: $color-grey;
+        }
+    }
+
+    .optimizedCheckout-buttonSecondary {
+        background-color: $color-white;
+        border-color: $tco-field;
+        border-radius: 4px;
+        color: $tco-dark;
+        font-family: $fontFamily-montserrat;
+
+        &:hover,
+        &:focus,
+        &:active {
+            background-color: $color-white;
+            border-color: $tco-blue;
+            color: $tco-blue;
+        }
+    }
+
+    // Form fields
+    .optimizedCheckout-form-input,
+    .optimizedCheckout-form-select {
+        border-color: $tco-field;
+        border-radius: 4px;
+        color: $tco-ink;
+        font-family: $fontFamily-montserrat;
+
+        &:focus,
+        &.optimizedCheckout-form-input--focus {
+            border-color: $tco-blue;
+            box-shadow: 0 0 0 1px $tco-blue;
+        }
+    }
+
+    .optimizedCheckout-form-checkbox:checked + label::before,
+    .optimizedCheckout-form-radio:checked + label::before {
+        border-color: $tco-blue;
+    }
+
+    .optimizedCheckout-orderSummary {
+        border-color: $tco-border;
+    }
+
+    // Page header from BigCommerce's checkout template: white with a hairline, as the storefront.
+    .optimizedCheckout-header {
+        background-color: $color-white;
+        border-bottom: 1px solid $color-greyLight;
+    }
+}
