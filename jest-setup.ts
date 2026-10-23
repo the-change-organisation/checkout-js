@@ -7,6 +7,9 @@ import { TransformStream } from 'stream/web';
 
 configureRTL({ testIdAttribute: 'data-test' });
 
+// TCO: BigCommerce's tests check BigCommerce's flow; TCO tests turn this back on (isTcoCheckout).
+process.env.TCO_CHECKOUT = 'off';
+
 // https://github.com/facebook/jest/issues/10784
 process.on('unhandledRejection', (reason) => {
     console.log(reason);
@@ -20,7 +23,7 @@ window.matchMedia = jest.fn(
             addEventListener: noop,
             removeListener: noop,
             removeEventListener: noop,
-        } as MediaQueryList),
+        }) as MediaQueryList,
 );
 
 Object.defineProperty(

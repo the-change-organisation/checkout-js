@@ -14,6 +14,8 @@ import {
 } from '@bigcommerce/checkout/ui';
 
 import { OrderComments } from '../orderComments';
+import DeliveryDetails from '../tco/DeliveryDetails';
+import isTcoCheckout from '../tco/isTcoCheckout';
 
 import { ShippingExpectationMessage } from './ShippingExpectationMessage';
 import { ShippingOptions } from './shippingOption';
@@ -80,7 +82,8 @@ const ShippingFormFooter: FunctionComponent<ShippingFormFooterProps> = ({
                 />
             </Fieldset>
 
-            {shouldShowOrderComments && <OrderComments />}
+            {/* TCO: delivery date (required) and notes replace the order comment box (SH-CHK-01) */}
+            {isTcoCheckout() ? <DeliveryDetails /> : shouldShowOrderComments && <OrderComments />}
 
             <div className="form-actions">
                 <Button

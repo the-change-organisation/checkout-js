@@ -1,0 +1,74 @@
+// =============================================================================
+// TCO DELIVERY DATE AND NOTES (SH-CHK-01 step 1, C-DATE-PICKER)
+// =============================================================================
+
+html body {
+    .tco-delivery {
+        margin-top: 1.5rem;
+    }
+
+    .tco-delivery-chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .tco-delivery-chip {
+        background: $color-white;
+        border: 1px solid $color-greyMedium;
+        border-radius: 999px;
+        color: $color-greyDarkest;
+        cursor: pointer;
+        font: 500 13px $fontFamily-montserrat;
+        padding: 0.5rem 0.875rem;
+
+        strong {
+            color: $color-primaryDarker;
+            font-weight: 700;
+            margin-right: 0.25rem;
+        }
+
+        &:hover {
+            border-color: $color-primary;
+        }
+
+        &[aria-pressed="true"] {
+            background: $color-infoLight;
+            border: 2px solid $color-primary;
+            padding: calc(0.5rem - 1px) calc(0.875rem - 1px);
+        }
+    }
+
+    .tco-delivery-help {
+        font-size: 12px;
+        margin: 0.5rem 0 0;
+    }
+
+    .tco-delivery-error {
+        color: $color-error;
+        font-size: 12px;
+        font-weight: 600;
+        margin: 0.5rem 0 0;
+    }
+
+    .tco-delivery-optional {
+        color: $color-greyDark;
+        font-weight: 400;
+    }
+
+    // Picker: blue for the chosen day, greyed out for weekends and bank holidays.
+    .react-datepicker {
+        font-family: $fontFamily-montserrat;
+    }
+
+    .react-datepicker__day--selected,
+    .react-datepicker__day--keyboard-selected {
+        background-color: $color-primary;
+        color: $color-white;
+    }
+
+    .react-datepicker__day--disabled {
+        color: $color-greyMedium;
+    }
+}
