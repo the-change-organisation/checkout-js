@@ -56,6 +56,8 @@ import { useCreateAccount } from '../customer/useCreateAccount';
 import { type EmbeddedCheckoutStylesheet, isEmbedded } from '../embeddedCheckout';
 import { hasSelectedShippingOptions, isUsingMultiShipping } from '../shipping';
 import { ShippingOptionExpiredError } from '../shipping/shippingOption';
+import isTcoCheckout from '../tco/isTcoCheckout';
+import storefrontConfirmationUrl from '../tco/storefrontConfirmationUrl';
 
 import type CheckoutStepStatus from './CheckoutStepStatus';
 import CheckoutStepType from './CheckoutStepType';
@@ -286,6 +288,16 @@ const Checkout = ({
         CannotCreatePersonalAccountSessionStorage.setCannotCreatePersonalAccount(
             cannotCreatePersonalAccount,
         );
+
+        const tcoConfirmationUrl =
+            isTcoCheckout() &&
+            storefrontConfirmationUrl(data.getConfig()?.links.siteLink, orderId);
+
+        if (tcoConfirmationUrl) {
+            replaceLocation(tcoConfirmationUrl);
+
+            return;
+        }
 
         void navigateToOrderConfirmationUtility(orderId);
     }, []);
